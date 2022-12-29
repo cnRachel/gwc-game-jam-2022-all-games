@@ -16,6 +16,7 @@ import game7 from '../public/game7.png'
 import game8 from '../public/game8.png'
 import game9 from '../public/game9.png'
 import game10 from '../public/game10.png'
+import { redirect } from 'next/dist/server/api-utils';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,11 +34,25 @@ const tabs = [
     key: 'scratch',
     display: 'Scratch'
   }
-]
+];
 
-const images = [
+const images = [game1, game2, game3, game4, game5, game6, game7, game8, game9, game10];
+const gameLinks = [
+  "https://studio.code.org/projects/applab/8al2mTiqYVYH8FALbWIB8vp6ipjPvTZM0RCmJTSwtCU",
+  "https://studio.code.org/projects/applab/fQuGLh8ePO-i3tJ2zrjnNctaMhAFeIfnvZPqHHScPP4",
+  "https://replit.com/@avneets/Everything-Project-III-Quiz?v=1",
+  "https://scratch.mit.edu/projects/775238916",
+  "https://multidimensionalsanta.racchen.repl.co/",
+  "https://replit.com/@shuchid/Hangman-Christmas-Edition#main.py",
+  "https://scratch.mit.edu/projects/765963500",
+  "https://studio.code.org/projects/applab/5XOaBaihvr-5yFR0B5H08Y99w8nGnEQIweyObhHgyZM",
+  "https://replit.com/@Vicbel/Santa-Survival-Adventure?v=1",
+  "https://editor.p5js.org/inkjelly/full/Iz4yEVIjJ"
+];
 
-]
+const openLink = (url: string | URL | undefined) => {
+  window.open(url, '_blank', 'noreferrer');
+};
 
 export default function Home() {
   return (
@@ -69,27 +84,28 @@ export default function Home() {
             </Tab.List>
             <Tab.Panels className="h-full h-full max-w-[900px] w-full p-2 sm:p-4 my-6">
               <Tab.Panel>
-                <Masonry breakpointCols={2} className='flex gap-2' columnClassName=''>
+                <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
 
-                  <Image src={game1} alt="placeholder" className="my-4"/>
-                  <Image src={game2} alt="placeholder" className="my-4"/>
-                  <Image src={game3} alt="placeholder" className="my-4"/>
-                  <Image src={game4} alt="placeholder" className="my-4"/>
-                  <Image src={game5} alt="placeholder" className="my-4"/>
-                  <Image src={game6} alt="placeholder" className="my-4"/>
-                  <Image src={game7} alt="placeholder" className="my-4"/>
-                  <Image src={game8} alt="placeholder" className="my-4"/>
-                  <Image src={game9} alt="placeholder" className="my-4"/>
-                  <Image src={game10} alt="placeholder" className="my-4"/>
-
-
-
-                  {/* <img src="/game-andrea.png" alt="andrea's game" className="my-2"/>
-                  <img src="/game-avneet.png" alt="avneet's game" className="my-2"/>
-                  <img src="/game-victoria.png" alt="victoria's game" className="my-2"/>
-                  <img src="/game-yen.png" alt="yen's game" className="my-2"/> */}
-
+                  {images.map((image, idx) => 
+                    <Image 
+                      key={image.src} 
+                      src={image} 
+                      alt="placeholder" 
+                      className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
+                      placeholder="blur"
+                      onClick={()=> {
+                        openLink(gameLinks[idx]);
+                      }}
+                    />
+                    
+                  )}
+                  
+              
                 </Masonry>
+
+                
+                
+
               </Tab.Panel>
               <Tab.Panel>Code.org</Tab.Panel>
               <Tab.Panel>Scratch</Tab.Panel>
