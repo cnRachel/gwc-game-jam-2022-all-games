@@ -95,8 +95,8 @@ export default function Home() {
       </Head>
 
       <header className ="fixed bg-stone-900 top-0 w-full z-10 flex justify-between items-center h-[90px] px-10">
-        <span className = "uppercase text-lg font-medium">Girls Who Code Game Jam</span>
-        <Link href="https://www.facebook.com/groups/331081594733054" className="rounded-3xl bg-white text-stone-900 px-3 py-2 hover:bg-opacity-90">Get in Touch</Link>
+        <span className = "uppercase text-lg font-medium">Girls Who Code Christmas Game Jam</span>
+        <Link href="https://www.facebook.com/groups/331081594733054" className="rounded-3xl bg-lime-50 text-stone-900 px-3 py-2 hover:bg-opacity-90">Get in Touch</Link>
         
       </header>
 
@@ -107,7 +107,7 @@ export default function Home() {
 
               {tabs.map(tab => (
                 <Tab key={tab.key} className="p-2">
-                  {({selected}) => (<span className={classNames ("uppercase text-lg", selected ? 'text-white' : 'text-stone-600')}>{tab.display}</span>)}
+                  {({selected}) => (<span className={classNames ("uppercase text-lg", selected ? 'text-red-500' : 'text-stone-600')}>{tab.display}</span>)}
                 </Tab>
               ))}
 
