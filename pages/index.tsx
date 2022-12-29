@@ -33,11 +33,23 @@ const tabs = [
   {
     key: 'scratch',
     display: 'Scratch'
+  },
+  {
+    key: 'replit',
+    display: 'Replit'
+  },
+  {
+    key: 'p5.js',
+    display: 'p5.js'
   }
 ];
 
-const images = [game1, game2, game3, game4, game5, game6, game7, game8, game9, game10];
-const gameLinks = [
+const allGames = [game1, game2, game3, game4, game5, game6, game7, game8, game9, game10];
+const codeGames = [game1, game2, game8];
+const scratchGames = [game4, game7];
+const replitGames = [game3, game5, game6, game9];
+const p5Games = [game10];
+const allGameLinks = [
   "https://studio.code.org/projects/applab/8al2mTiqYVYH8FALbWIB8vp6ipjPvTZM0RCmJTSwtCU",
   "https://studio.code.org/projects/applab/fQuGLh8ePO-i3tJ2zrjnNctaMhAFeIfnvZPqHHScPP4",
   "https://replit.com/@avneets/Everything-Project-III-Quiz?v=1",
@@ -49,7 +61,25 @@ const gameLinks = [
   "https://replit.com/@Vicbel/Santa-Survival-Adventure?v=1",
   "https://editor.p5js.org/inkjelly/full/Iz4yEVIjJ"
 ];
+const codeGameLinks = [
+  "https://studio.code.org/projects/applab/8al2mTiqYVYH8FALbWIB8vp6ipjPvTZM0RCmJTSwtCU",
+  "https://studio.code.org/projects/applab/fQuGLh8ePO-i3tJ2zrjnNctaMhAFeIfnvZPqHHScPP4",
+  "https://studio.code.org/projects/applab/5XOaBaihvr-5yFR0B5H08Y99w8nGnEQIweyObhHgyZM"
+];
 
+const scratchGameLinks = [
+  "https://scratch.mit.edu/projects/775238916",
+  "https://scratch.mit.edu/projects/765963500"
+];
+const replitGameLinks = [
+  "https://replit.com/@avneets/Everything-Project-III-Quiz?v=1",
+  "https://multidimensionalsanta.racchen.repl.co/",
+  "https://replit.com/@shuchid/Hangman-Christmas-Edition#main.py",
+  "https://replit.com/@Vicbel/Santa-Survival-Adventure?v=1"
+];
+const p5GameLinks = [
+  "https://editor.p5js.org/inkjelly/full/Iz4yEVIjJ"
+];
 const openLink = (url: string | URL | undefined) => {
   window.open(url, '_blank', 'noreferrer');
 };
@@ -66,7 +96,7 @@ export default function Home() {
 
       <header className ="fixed bg-stone-900 top-0 w-full z-10 flex justify-between items-center h-[90px] px-10">
         <span className = "uppercase text-lg font-medium">Girls Who Code Game Jam</span>
-        <Link href="#" className="rounded-3xl bg-white text-stone-900 px-3 py-2 hover:bg-opacity-90">Get in Touch</Link>
+        <Link href="https://www.facebook.com/groups/331081594733054" className="rounded-3xl bg-white text-stone-900 px-3 py-2 hover:bg-opacity-90">Get in Touch</Link>
         
       </header>
 
@@ -86,7 +116,7 @@ export default function Home() {
               <Tab.Panel>
                 <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
 
-                  {images.map((image, idx) => 
+                  {allGames.map((image, idx) => 
                     <Image 
                       key={image.src} 
                       src={image} 
@@ -94,21 +124,97 @@ export default function Home() {
                       className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
                       placeholder="blur"
                       onClick={()=> {
-                        openLink(gameLinks[idx]);
+                        openLink(allGameLinks[idx]);
                       }}
                     />
                     
                   )}
-                  
               
                 </Masonry>
 
-                
-                
+              </Tab.Panel>
+              <Tab.Panel>
+                <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
+
+                  {codeGames.map((image, idx) => 
+                    <Image 
+                      key={image.src} 
+                      src={image} 
+                      alt="placeholder" 
+                      className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
+                      placeholder="blur"
+                      onClick={()=> {
+                        openLink(codeGameLinks[idx]);
+                      }}
+                    />
+                    
+                  )}
+              
+                </Masonry>
 
               </Tab.Panel>
-              <Tab.Panel>Code.org</Tab.Panel>
-              <Tab.Panel>Scratch</Tab.Panel>
+              <Tab.Panel>
+                <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
+
+                  {scratchGames.map((image, idx) => 
+                    <Image 
+                      key={image.src} 
+                      src={image} 
+                      alt="placeholder" 
+                      className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
+                      placeholder="blur"
+                      onClick={()=> {
+                        openLink(scratchGameLinks[idx]);
+                      }}
+                    />
+                    
+                  )}
+              
+                </Masonry>
+
+              </Tab.Panel>
+              <Tab.Panel>
+                <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
+
+                  {replitGames.map((image, idx) => 
+                    <Image 
+                      key={image.src} 
+                      src={image} 
+                      alt="placeholder" 
+                      className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
+                      placeholder="blur"
+                      onClick={()=> {
+                        openLink(replitGameLinks[idx]);
+                      }}
+                    />
+                    
+                  )}
+              
+                </Masonry>
+
+              </Tab.Panel>
+              <Tab.Panel>
+                <Masonry breakpointCols={2} className='flex gap-4' columnClassName=''>
+
+                  {p5Games.map((image, idx) => 
+                    <Image 
+                      key={image.src} 
+                      src={image} 
+                      alt="placeholder" 
+                      className="my-6 rounded- hover:scale-105 transition duration-300 ease-in-out" 
+                      placeholder="blur"
+                      onClick={()=> {
+                        openLink(p5GameLinks[idx]);
+                      }}
+                    />
+                    
+                  )}
+              
+                </Masonry>
+
+              </Tab.Panel>
+              
+
             </Tab.Panels>
           </Tab.Group>
         </div>
